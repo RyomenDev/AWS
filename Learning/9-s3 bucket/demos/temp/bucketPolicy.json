@@ -2,17 +2,17 @@
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "blockallpublicaccess",
+            "Sid": "blockAllPublicAccessExceptOwner",
             "Effect": "Deny",
             "Principal": "*",
             "Action": "s3:*",
             "Resource": [
-                "arn:aws:s3:::aws-learnapp1/*",
-                "arn:aws:s3:::aws-learnapp1",
+                "arn:aws:s3:::{your-bucket-name}/*",
+                "arn:aws:s3:::{your-bucket-name}"
             ],
             "Condition": {
                 "StringNotEquals": {
-                    "aws:PrincipalArn": "\"aws:PrincipalArn\":\"arn:aws:iam::AWS_ACCOUNT_ID:root"
+                    "aws:PrincipalArn": "arn:aws:iam::AWS_ACCOUNT_ID:root"
                 }
             }
         }
